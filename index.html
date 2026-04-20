@@ -26,9 +26,21 @@
       align-items: center;
       margin-bottom: 20px;
     }
-    .wiom-logo svg {
-      height: 36px;
+    .wiom-logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .wiom-logo img {
+      height: 32px;
       width: auto;
+    }
+    .wiom-logo-text {
+      font-size: 26px;
+      font-weight: 700;
+      color: #D9008D;
+      letter-spacing: -0.5px;
+      line-height: 1;
     }
 
     /* ── Card ── */
@@ -215,16 +227,8 @@
 
   <div class="top-bar">
     <div class="wiom-logo">
-      <svg viewBox="0 0 120 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Infinity symbol -->
-        <circle cx="10" cy="7" r="3" fill="#D9008D"/>
-        <path d="M10 10 C10 16, 16 20, 22 16 C28 12, 34 8, 34 14 C34 20, 28 24, 22 20 C16 16, 10 20, 10 26" stroke="#D9008D" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-        <circle cx="10" cy="26" r="2.2" fill="#D9008D"/>
-        <!-- Wiom text -->
-        <text x="42" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="900" fill="#D9008D" letter-spacing="-0.5">Wiom</text>
-        <!-- Trailing dot -->
-        <circle cx="114" cy="27" r="3" fill="#D9008D"/>
-      </svg>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAAAqCAYAAAAK7f2YAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAT6SURBVHgB7VpNUttIFP66ZfDsxoshQOIk5gQxJxhzgpATQE4AmkzNNmY7UxOZqtkHTgCcIOYEaE4QV0ECNovR7DC2uvOebAlZ/sEC23JU+TZWtdpy63v/71kgJj7nrNzCgtpUQjsvGr8fI2UQcTZfrlgFpfGJLgudLyvzaf1dBSmCjLO5pdwiumQwNOR7pAyxCBHScCJLNaQMsQh5fmVWtcBbrWFroHor8AY/kG7EcqqdCNMqKCEL3peVdgRFm/z1HzZSgnsJ4cgChS0lsI2QQ+2BBhGDqlLqpNWSx2uO6eA7xVBCmAjyFR/JV5QQDzUiqHorsbd2ZdYwA5z/8ldJGJnX9DJ0Zr0mhPgZd8Kz6Ty2C/dknLxpICFXyx92XC3KdDeHh8ORGpXVhrmHKeF8xSoxCXBh56/NPrO9WLKKFDZ4zw46BNW0Unv563cHw57ZR8jXZcsirdjtWSSToJ1VWj+lKGO36cEZloZCjpKzohDyVzFck2oUjTZmpS3DcLFibQsNzpsKGHGmHkL6yCAilMR++waV+/wCm5irdJnUdWvAbYckY46SzCzAQSGT1WUJwRpD2oI3Uc0KCPHMBCKchtucZ8SV7ChiyITK0zShcUGmVpYdbSFBYSNMikeIV6MonPk+g8zisHWD3cdEC09FFayoH6IfrDytmyYSxvnyh4qvKbdNrPvv6mWqRMb70MFrjyWDkb8yD6TEOiLpPZvkl2XrjNUXCaLdpKDROVshm0VQkwk+2GIW//kLZCZrk3SAXe07IsKLkVuJO9uuo/3I1/57S2PRLQU7NA4mfcBVet6zhrlO+cFh5FZhkVoJnznxSwisxV4EJWS09oKJpJBZ8je4wAmmhHzjt23KdqMONXFSqNHlCYr8iRcEpAHxyr/5omFOtQNG1XJ53kihesyPMLmvq/+8pOgTSnFngPkjRQbvrdrNjaAfQsTMrCCbR03xIX2nMmvMCylat3vCP5mM/pcvxLDSfoqYB1K0FL2EQAROpZBEsjSKFK9anTIMGK/9a21IykOEDCJL5idM/QCDMIwUIWdAirir0qmItSUnTmQuVV4wNBIbKzAp3MCOLOeIlLPLlf0tTAEXS39vo+squGnO5YoXZdyudLg7lnTmOIAUKK0OLp9YExUWlxRChuZKVNDyh0cIjxd8Lcl2c/ukwKS4msYbkehHJlXmfs2k/By1Ry3cBZKal8YjNJcRLBk6BGvJpKURF5wxD6uUqRA9e6wWf3lica94M3huyH/1dMzYgRExn7gVMA/NnOgsOQw+343EYZxitPu8I7oMHLUC9p/XzaBL2NdT9UiR3pcKXP3Osns+DKFmThRe07hlyOqoM14s/UmCXthBZ5QShv2sbq6HFwZ23SNtwLF+lOHb9zTmMpEmcR/YB7pandKeWrAo5SvyCcVBo5RhXcGRgypu85NqsmQ2u5uPFdSpdlVQEHGmRz0EHmY5XCgNGgdMCvc0sscD+0nyGfm6WRl0e6xRJkveWOT5hipKyJf+OvUS/qfD2cT0TKd1DyZmDBcwFiHzCo8YNgeNLTKVYt9graMNrLEnrSZ1A8cQ2ndNSBQcjnmAJlw4LQNO0sEgFUiXhpCvo5HCEUcVDgDNJt7G9W2x/kE07+AxpR9iORPNLKrduM9IFSHkWCPNnruIOC5SRQhlW5WgKKRPDrGIiVT5EAaH4jZFGm72PCQ3+gYZGIDisyUpmQAAAABJRU5ErkJggg==" alt="Wiom">
+      <span class="wiom-logo-text">Wiom</span>
     </div>
   </div>
 
