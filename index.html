@@ -298,9 +298,13 @@
   tomorrow.setDate(tomorrow.getDate() + 1);
   var minDate = tomorrow.toISOString().split('T')[0];
 
+  var dayAfter = new Date();
+  dayAfter.setDate(dayAfter.getDate() + 2);
+  var defaultDate = dayAfter.toISOString().split('T')[0];
+
   var dateInput = document.getElementById('pickup-date');
   dateInput.min   = minDate;
-  dateInput.value = minDate;
+  dateInput.value = defaultDate;
 
   document.getElementById('pickup-form').addEventListener('submit', function (e) {
     e.preventDefault();
