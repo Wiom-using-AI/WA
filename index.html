@@ -3,192 +3,213 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Wiom – NetBox Pickup Date</title>
+  <title>Wiom – NetBox Pickup</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #ede9fe 0%, #dbeafe 100%);
+      background: #F1EDF7;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 24px 16px;
     }
 
+    /* ── Header bar ── */
+    .top-bar {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .wiom-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 1px;
+    }
+    .wiom-logo-text {
+      font-size: 28px;
+      font-weight: 900;
+      color: #D9008D;
+      letter-spacing: -1.5px;
+      line-height: 1;
+    }
+    .wiom-logo-dot {
+      width: 7px; height: 7px;
+      background: #D9008D;
+      border-radius: 50%;
+      margin-left: 1px;
+      margin-bottom: 4px;
+    }
+
+    /* ── Card ── */
     .card {
-      background: #fff;
+      background: #FAF9FC;
       border-radius: 20px;
-      padding: 36px 28px 32px;
+      padding: 28px 24px 32px;
       max-width: 420px;
       width: 100%;
-      box-shadow: 0 8px 32px rgba(79, 70, 229, 0.12);
+      box-shadow: 0 4px 24px rgba(68, 49, 82, 0.10);
     }
 
-    .brand {
-      text-align: center;
-      margin-bottom: 28px;
+    /* ── Hero section ── */
+    .hero {
+      margin-bottom: 24px;
     }
-    .brand-name {
-      font-size: 26px;
-      font-weight: 900;
-      color: #4f46e5;
-      letter-spacing: -1px;
-    }
-    .brand-sub {
+    .hero-tag {
+      display: inline-block;
+      background: #FFE5F6;
+      color: #D9008D;
       font-size: 11px;
-      font-weight: 600;
-      color: #a5b4fc;
-      letter-spacing: 2px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      margin-top: 2px;
+      padding: 4px 10px;
+      border-radius: 50px;
+      margin-bottom: 12px;
     }
-
-    h1 {
-      font-size: 19px;
+    .hero h1 {
+      font-size: 22px;
       font-weight: 800;
-      color: #1e1b4b;
-      text-align: center;
+      color: #161021;
       line-height: 1.3;
       margin-bottom: 8px;
     }
-    .subtitle {
-      font-size: 13.5px;
-      color: #6b7280;
-      text-align: center;
-      line-height: 1.5;
-      margin-bottom: 32px;
+    .hero p {
+      font-size: 14px;
+      color: #665E75;
+      line-height: 1.6;
     }
 
-    .field-wrap { margin-bottom: 20px; }
-
-    label {
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
-      color: #374151;
-      margin-bottom: 8px;
-      letter-spacing: 0.01em;
-    }
-
+    /* ── Customer card ── */
     .customer-card {
       display: flex;
       align-items: center;
       gap: 12px;
-      background: #f5f3ff;
-      border: 1.5px solid #ddd6fe;
+      background: #fff;
+      border: 1.5px solid #D7D3E0;
       border-radius: 14px;
       padding: 14px 16px;
       margin-bottom: 24px;
     }
     .customer-avatar {
-      width: 42px; height: 42px;
-      background: #4f46e5;
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, #D9008D, #443152);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
+      font-size: 20px;
       flex-shrink: 0;
     }
     .customer-info-name {
       font-size: 15px;
       font-weight: 700;
-      color: #1e1b4b;
+      color: #161021;
     }
     .customer-info-phone {
       font-size: 13px;
-      color: #6b7280;
+      color: #665E75;
       margin-top: 2px;
     }
 
-input[type="date"] {
+    /* ── Field ── */
+    .field-wrap { margin-bottom: 8px; }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #443152;
+      margin-bottom: 8px;
+    }
+
+    input[type="date"] {
       width: 100%;
       padding: 15px 16px;
-      border: 2px solid #e5e7eb;
+      border: 2px solid #D7D3E0;
       border-radius: 12px;
       font-size: 16px;
-      color: #111827;
-      background: #f9fafb;
+      color: #161021;
+      background: #fff;
       outline: none;
-      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s;
       -webkit-appearance: none;
       appearance: none;
       cursor: pointer;
     }
     input[type="date"]:focus {
-      border-color: #4f46e5;
-      background: #fff;
-      box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+      border-color: #D9008D;
+      box-shadow: 0 0 0 4px #FFE5F6;
     }
 
-    .info-box {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      border-radius: 10px;
-      padding: 12px 14px;
-      margin-bottom: 24px;
-    }
-    .info-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-    .info-text { font-size: 12.5px; color: #166534; line-height: 1.5; }
-
+    /* ── CTA Button ── */
     .submit-btn {
       width: 100%;
       padding: 17px 16px;
-      background: #4f46e5;
-      color: #fff;
+      background: #D9008D;
+      color: #FAF9FC;
       border: none;
       border-radius: 12px;
       font-size: 16px;
       font-weight: 800;
       cursor: pointer;
+      margin-top: 24px;
       transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
-      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+      box-shadow: 0 4px 16px rgba(217, 0, 141, 0.30);
       letter-spacing: 0.01em;
     }
-    .submit-btn:hover  { background: #4338ca; }
+    .submit-btn:hover  { background: #b8007a; }
     .submit-btn:active { transform: scale(0.98); }
     .submit-btn:disabled {
-      background: #a5b4fc;
+      background: #FFB2E4;
       box-shadow: none;
       cursor: not-allowed;
     }
 
     .error-msg {
       display: none;
-      color: #dc2626;
+      color: #E01E00;
       font-size: 13px;
       text-align: center;
       margin-top: 12px;
     }
 
     /* ── Confirmation ── */
-    .confirmation { display: none; text-align: center; }
+    .confirmation { display: none; text-align: center; padding: 8px 0; }
     .check-wrap {
       width: 80px; height: 80px;
-      background: #f0fdf4;
+      background: #E1FAED;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 20px;
-      font-size: 40px;
+      font-size: 38px;
     }
     .confirmation h2 {
       font-size: 17px;
       font-weight: 700;
-      color: #1e1b4b;
-      line-height: 1.6;
-      margin-bottom: 16px;
+      color: #161021;
+      line-height: 1.7;
+      margin-bottom: 20px;
     }
     .confirmed-date {
       display: inline-block;
-      background: #ede9fe;
-      color: #4f46e5;
+      background: #FFE5F6;
+      color: #D9008D;
       font-size: 15px;
       font-weight: 700;
-      padding: 10px 20px;
+      padding: 10px 22px;
       border-radius: 50px;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 20px;
+      font-size: 11px;
+      color: #A7A1B2;
+      text-align: center;
     }
 
     /* ── Spinner ── */
@@ -206,137 +227,123 @@ input[type="date"] {
   </style>
 </head>
 <body>
-<div class="card">
-  <div class="brand">
-    <div class="brand-name">wiom</div>
-    <div class="brand-sub">NetBox Pickup</div>
+
+  <div class="top-bar">
+    <div class="wiom-logo">
+      <span class="wiom-logo-text">wiom</span>
+      <span class="wiom-logo-dot"></span>
+    </div>
   </div>
 
-  <!-- ── Form ── -->
-  <div id="form-section">
-    <h1>Apni Pickup Date Chuniye</h1>
-    <p class="subtitle">Woh tarikh select karein jab aap ghar par hoon aur hum NetBox le sakein</p>
+  <div class="card">
 
-    <form id="pickup-form" novalidate>
-      <input type="hidden" id="field-name"  name="name">
-      <input type="hidden" id="field-phone" name="phone">
+    <!-- ── Form ── -->
+    <div id="form-section">
+      <div class="hero">
+        <div class="hero-tag">NetBox Pickup</div>
+        <h1>NetBox वापसी की तारीख चुनें</h1>
+        <p>जिस दिन घर पर हों, वो तारीख चुनें — हम उसी दिन आएंगे</p>
+      </div>
 
-      <div class="customer-card">
-        <div class="customer-avatar">👤</div>
-        <div>
-          <div class="customer-info-name" id="display-name"></div>
-          <div class="customer-info-phone" id="display-phone"></div>
+      <form id="pickup-form" novalidate>
+        <input type="hidden" id="field-name"  name="name">
+        <input type="hidden" id="field-phone" name="phone">
+
+        <div class="customer-card">
+          <div class="customer-avatar">👤</div>
+          <div>
+            <div class="customer-info-name" id="display-name"></div>
+            <div class="customer-info-phone" id="display-phone"></div>
+          </div>
         </div>
-      </div>
 
-      <div class="field-wrap">
-        <label for="pickup-date">Pickup Ki Tarikh</label>
-        <input type="date" id="pickup-date" name="pickup-date" required>
-      </div>
+        <div class="field-wrap">
+          <label for="pickup-date">तारीख चुनें</label>
+          <input type="date" id="pickup-date" name="pickup-date" required>
+        </div>
 
-<button type="submit" class="submit-btn" id="submit-btn">
-        Taareekh Confirm Karein
-      </button>
-      <div class="error-msg" id="error-msg">
-        Kuch gadbad hui. Dobara try karein ya support se contact karein.
-      </div>
-    </form>
+        <button type="submit" class="submit-btn" id="submit-btn">
+          तारीख पक्की करें
+        </button>
+        <div class="error-msg" id="error-msg">
+          कुछ गड़बड़ हुई। दोबारा कोशिश करें।
+        </div>
+      </form>
+    </div>
+
+    <!-- ── Confirmation ── -->
+    <div class="confirmation" id="confirmation">
+      <div class="check-wrap">✅</div>
+      <h2 id="confirmation-text"></h2>
+      <div class="confirmed-date" id="confirmed-date"></div>
+    </div>
+
   </div>
 
-  <!-- ── Confirmation ── -->
-  <div class="confirmation" id="confirmation">
-    <div class="check-wrap">✅</div>
-    <h2 id="confirmation-text"></h2>
-    <div class="confirmed-date" id="confirmed-date"></div>
-  </div>
-</div>
+  <div class="footer">© Wiom · रिचार्ज-वाला घर का नेट</div>
 
 <script>
-  // ── Config ──────────────────────────────────────────────────────────────
   var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzbXNrjyagPYv6d3iHUPFyUaC4kwbA2LN5cdI3ZuCudzkiAIj5Pkk826gdADSn7g1aa/exec';
-  // ────────────────────────────────────────────────────────────────────────
 
-  // Read query params
-  var params = new URLSearchParams(window.location.search);
+  var params   = new URLSearchParams(window.location.search);
   var nameVal  = (params.get('name')  || 'Rahul Sharma').trim();
   var phoneVal = (params.get('phone') || '9876543210').trim();
 
   document.getElementById('field-name').value  = nameVal;
   document.getElementById('field-phone').value = phoneVal;
-
   document.getElementById('display-name').textContent  = nameVal;
   document.getElementById('display-phone').textContent = phoneVal;
 
-  // Set minimum date = tomorrow
   var tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
-  var yyyy = tomorrow.getFullYear();
-  var mm   = String(tomorrow.getMonth() + 1).padStart(2, '0');
-  var dd   = String(tomorrow.getDate()).padStart(2, '0');
-  var minDate = yyyy + '-' + mm + '-' + dd;
+  var minDate = tomorrow.toISOString().split('T')[0];
 
   var dateInput = document.getElementById('pickup-date');
   dateInput.min   = minDate;
   dateInput.value = minDate;
 
-  // Form submit
   document.getElementById('pickup-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
     var pickupDate = dateInput.value;
-    if (!pickupDate || pickupDate < minDate) {
-      dateInput.focus();
-      return;
-    }
-
-    var nameVal  = document.getElementById('field-name').value.trim();
-    var phoneVal = document.getElementById('field-phone').value.trim();
+    if (!pickupDate || pickupDate < minDate) { dateInput.focus(); return; }
 
     var btn = document.getElementById('submit-btn');
     btn.disabled = true;
-    btn.innerHTML = '<span class="spinner"></span>Bhej rahe hain...';
+    btn.innerHTML = '<span class="spinner"></span>भेज रहे हैं...';
     document.getElementById('error-msg').style.display = 'none';
-
-    var timestamp = new Date().toISOString();
-    var body = new URLSearchParams({
-      timestamp : timestamp,
-      name      : nameVal,
-      phone     : phoneVal,
-      date      : pickupDate
-    });
 
     fetch(SCRIPT_URL, {
       method  : 'POST',
       mode    : 'no-cors',
       headers : { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body    : body.toString()
+      body    : new URLSearchParams({
+        timestamp : new Date().toISOString(),
+        name      : nameVal,
+        phone     : phoneVal,
+        date      : pickupDate
+      }).toString()
     })
-    .then(function () {
-      showConfirmation(pickupDate);
-    })
+    .then(function () { showConfirmation(pickupDate); })
     .catch(function () {
       btn.disabled = false;
-      btn.innerHTML = 'Taareekh Confirm Karein';
+      btn.innerHTML = 'तारीख पक्की करें';
       document.getElementById('error-msg').style.display = 'block';
     });
   });
 
   function showConfirmation(pickupDate) {
     document.getElementById('form-section').style.display = 'none';
+    document.getElementById('confirmation').style.display = 'block';
 
-    var conf = document.getElementById('confirmation');
-    conf.style.display = 'block';
-
-    var displayName = nameVal || 'Aap';
     document.getElementById('confirmation-text').textContent =
-      'Shukriya ' + displayName + '! Aapki taareekh note ho gayi. Hum usi din aayenge NetBox lene \u2705';
+      'शुक्रिया ' + nameVal + '! आपकी तारीख नोट हो गई। हम उसी दिन आएंगे NetBox लेने ✅';
 
-    // Format date nicely
     var parts = pickupDate.split('-');
     var d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
-    var days   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    var months = ['January','February','March','April','May','June',
-                  'July','August','September','October','November','December'];
+    var days   = ['रविवार','सोमवार','मंगलवार','बुधवार','गुरुवार','शुक्रवार','शनिवार'];
+    var months = ['जनवरी','फ़रवरी','मार्च','अप्रैल','मई','जून',
+                  'जुलाई','अगस्त','सितंबर','अक्तूबर','नवंबर','दिसंबर'];
     document.getElementById('confirmed-date').textContent =
       days[d.getDay()] + ', ' + d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
   }
