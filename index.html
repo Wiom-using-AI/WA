@@ -26,24 +26,9 @@
       align-items: center;
       margin-bottom: 20px;
     }
-    .wiom-logo {
-      display: flex;
-      align-items: baseline;
-      gap: 1px;
-    }
-    .wiom-logo-text {
-      font-size: 28px;
-      font-weight: 900;
-      color: #D9008D;
-      letter-spacing: -1.5px;
-      line-height: 1;
-    }
-    .wiom-logo-dot {
-      width: 7px; height: 7px;
-      background: #D9008D;
-      border-radius: 50%;
-      margin-left: 1px;
-      margin-bottom: 4px;
+    .wiom-logo svg {
+      height: 36px;
+      width: auto;
     }
 
     /* ── Card ── */
@@ -230,8 +215,16 @@
 
   <div class="top-bar">
     <div class="wiom-logo">
-      <span class="wiom-logo-text">wiom</span>
-      <span class="wiom-logo-dot"></span>
+      <svg viewBox="0 0 120 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Infinity symbol -->
+        <circle cx="10" cy="7" r="3" fill="#D9008D"/>
+        <path d="M10 10 C10 16, 16 20, 22 16 C28 12, 34 8, 34 14 C34 20, 28 24, 22 20 C16 16, 10 20, 10 26" stroke="#D9008D" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+        <circle cx="10" cy="26" r="2.2" fill="#D9008D"/>
+        <!-- Wiom text -->
+        <text x="42" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="900" fill="#D9008D" letter-spacing="-0.5">Wiom</text>
+        <!-- Trailing dot -->
+        <circle cx="114" cy="27" r="3" fill="#D9008D"/>
+      </svg>
     </div>
   </div>
 
